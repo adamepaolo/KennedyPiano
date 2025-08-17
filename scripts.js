@@ -1,25 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Function to load HTML content from a file into an element
-    const loadHTML = (elementId, filePath) => {
-        fetch(filePath)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById(elementId).innerHTML = data;
-                // After loading the header, initialize the navigation and dark mode functionalities
-                if (elementId === 'header-placeholder') {
-                    initializeNav();
-                    initializeDarkMode();
-                    setActiveNavLink();
-                }
-            })
-            .catch(error => console.error('Error loading HTML:', error));
-    };
-    
-    // Load header and footer
-    loadHTML('header-placeholder', '_header.html');
-    loadHTML('footer-placeholder', '_footer.html');
-
     // Function to initialize navigation toggle
     const initializeNav = () => {
         const menuToggle = document.getElementById('menu-toggle');
@@ -44,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to initialize dark mode toggle
     const initializeDarkMode = () => {
         const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return; // Exit if the element is not found
+
         const sunIcon = document.querySelector('.sun-icon');
         const moonIcon = document.querySelector('.moon-icon');
 
@@ -83,4 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
+
+    // Initialize all functionalities directly
+    initializeNav();
+    initializeDarkMode();
+    setActiveNavLink();
 });
