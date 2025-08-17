@@ -1,0 +1,57 @@
+/*
+ * Custom CSS for Kennedy Piano Studio
+ * This file is for styles that are not easily managed by Tailwind CSS.
+ */
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Ensure consistent button focus states */
+.btn:focus,
+a:focus,
+button:focus {
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+}
+
+/* Mobile navigation menu styling - CONFINED TO MOBILE SCREENS */
+@media (max-width: 767px) {
+    #nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #111827; /* bg-gray-900 */
+        flex-direction: column;
+        padding-bottom: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    #nav-menu li {
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+}
+
+.hero-section {
+    background-image: url('https://placehold.co/1920x1080/4b5563/d1d5db?text=Kennedy+Piano+Studio');
+}
+
+.nav-link.active {
+    color: #fbbf24; /* amber-400 */
+}
